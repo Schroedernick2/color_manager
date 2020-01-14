@@ -30,6 +30,7 @@
 #define BBLUE_FG        94
 #define BMAGENTA_FG     95
 #define BCYAN_FG        96
+#define BWHITE_FG       97
 
 /***************************/
 /*****BACKGROUND COLORS*****/
@@ -49,7 +50,15 @@
 #define BBLUE_BG        104
 #define BMAGENTA_BG     105
 #define BCYAN_BG        106
+#define BWHITE_BG       107
+
+/***************************/
+/******DEFAULT VALUES*******/
+
+#define DEFAULT_FOREGROUND      39
+#define DEFAULT_BACKGROUND      49
 
 /***************************/
 
 #endif
+
