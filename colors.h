@@ -59,6 +59,22 @@
 #define DEFAULT_BACKGROUND      49
 
 /***************************/
+/********BOUNDARIES*********/
+
+#define MIN_FG      30
+#define MAX_FG      37
+#define MIN_BFG     90
+#define MAX_BFG     97
+
+#define MIN_BG      40
+#define MAX_BG      47
+#define MIN_BBG     100
+#define MAX_BBG     107
+
+#define MIN_ATTR    0
+#define MAX_ATTR    9
+
+/***************************/
 
 #endif
 
