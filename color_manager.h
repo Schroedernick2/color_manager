@@ -2,6 +2,7 @@
 #define COLOR_MANAGER_H
 
 #include "colors.h"
+#include <string>
 
 #define COLOR_OUT_OF_RANGE          -1
 #define ATTRIBUTE_OUT_OF_RANGE	    -2
@@ -26,6 +27,8 @@ namespace COLOR_HANDLER {
 
 			int set_attribute(int attribute);
 			int remove_attribute(int attribute);
+
+			std::string print(std::string content);
 
 		private:
 			int* font_attributes;
