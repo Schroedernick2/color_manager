@@ -7,15 +7,29 @@ namespace COLOR_HANDLER {
 		this->attribute_count = 0;
 		this->fg_color = DEFAULT_FOREGROUND;
 		this->bg_color = DEFAULT_BACKGROUND;
+
+		this->rgb_set = false;
+		this->r = 0;
+		this->g = 0;
+		this->b = 0;
 	}
 
 	color_manager::~color_manager(){
 		delete this->font_attributes;
 	}
 
+	void color_manager::set_default_color(){
+		this->fg_color = DEFAULT_FOREGROUND;
+		this->bg_color = DEFAULT_BACKGROUND;
+
+		this->rgb_set = false;
+	}
+
 	int color_manager::set_bg_color(int color){
 		if((color > MIN_BG && color < MAX_BG) || (color > MIN_BBG && color < MAX_BBG)){
 			this->bg_color = color;
+			this->rgb_set = false;
+
 			return 0;
 		}
 
@@ -23,20 +37,40 @@ namespace COLOR_HANDLER {
 	}
 
 	int color_manager::set_bg_color_rgb(int r,int g,int b){
+		if((r < MIN_RGB || r > MAX_RGB) || (g < MIN_RGB || g > MAX_RGB) || (b < MIN_RGB || b > MAX_RGB))
+			return COLOR_OUT_OF_RANGE;
+
+		this->r = r;
+		this->g = g;
+		this->b = b;
+
+		this->rgb_set = true;
+
+		return 0;
+	}
+
+	int color_manager::set_fg_color_rgb(int r,int g,int b){
+		if((r < MIN_RGB || r > MAX_RGB) || (g < MIN_RGB || g > MAX_RGB) || (b < MIN_RGB || b > MAX_RGB))
+			return COLOR_OUT_OF_RANGE;
+
+		this->r = r;
+		this->g = g;
+		this->b = b;
+
+		this->rgb_set = true;
+
 		return 0;
 	}
 
 	int color_manager::set_fg_color(int color){
 		if((color > MIN_BG && color < MAX_BG) || (color > MIN_BBG && color < MAX_BBG)){
-			this->bg_color = color;
+			this->fg_color = color;
+			this->rgb_set = false;
+
 			return 0;
 		}
 
 		return COLOR_OUT_OF_RANGE;
-	}
-
-	int color_manager::set_fg_color_rgb(int r,int g,int b){
-		return 0;
 	}
 
 	int color_manager::set_attributes(int* attributes,int size){

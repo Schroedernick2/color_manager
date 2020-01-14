@@ -17,7 +17,9 @@ namespace COLOR_HANDLER {
 			int set_bg_color(int color);
 			int set_bg_color_rgb(int r,int g,int b);
 			int set_fg_color(int color);
-			int set_fg_color_rgb(int r,int g,int b);	
+			int set_fg_color_rgb(int r,int g,int b);
+
+			void set_default_color();	
 
 			int set_attributes(int* attributes,int size);
 			void clear_attributes();
@@ -30,6 +32,11 @@ namespace COLOR_HANDLER {
 			int attribute_count;
 			int fg_color;
 			int bg_color;
+
+			bool rgb_set;
+			int r;
+			int g;
+			int b;
 	};
 
 }

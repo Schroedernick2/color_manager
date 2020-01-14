@@ -74,6 +74,9 @@
 #define MIN_ATTR    0
 #define MAX_ATTR    9
 
+#define MIN_RGB     0
+#define MAX_RGB     255
+
 /***************************/
 
 #endif
