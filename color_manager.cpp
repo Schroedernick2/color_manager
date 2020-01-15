@@ -22,7 +22,7 @@ namespace COLOR_HANDLER {
 		delete this->font_attributes;
 	}
 
-	string color_manager::print(string content){
+	string color_manager::format(string content){
 		string str_content = "\033[";
 
 		if(this->attribute_count > 0){
@@ -110,7 +110,7 @@ namespace COLOR_HANDLER {
 	}
 
 	void color_manager::clear_attributes(){
-		this->font_attributes = NULL;
+		this->font_attributes = (int*)malloc(MAX_ATTR*sizeof(int));
 		this->attribute_count = 0;
 	}
 

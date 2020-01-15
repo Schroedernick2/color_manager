@@ -28,7 +28,7 @@ namespace COLOR_HANDLER {
 			int set_attribute(int attribute);
 			int remove_attribute(int attribute);
 
-			std::string print(std::string content);
+			std::string format(std::string content);
 
 		private:
 			int* font_attributes;
