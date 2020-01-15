@@ -11,8 +11,16 @@ int main(int argc, char** argv){
 	color_manager* cm = new color_manager();
 
 	cout << "Starting test..." << endl;
-	cout << "\n-------------------------\n" << endl;
-	cout << "\tAttributes\n" << endl;
+	cm->set_attribute(BOLD);
+	cm->set_bg_color(BBLACK_BG);
+	cm->set_fg_color(BBLACK_FG);
+	cout << "\n" << cm->format("--------------------------------------------------------------") << "\n" << endl;
+
+	cm->set_bg_color(BGREEN_BG);
+	cm->set_fg_color(BBLACK_FG);
+
+	cout << "\t\t" << cm->format("Attributes") << "\n" << endl;
+
 	cm->clear_attributes();
 	cm->set_default_color();
 	cout << "Normal:\t\t\t\t" << cm->format("NORMAL TEXT") << endl;
@@ -57,7 +65,14 @@ int main(int argc, char** argv){
 	cm->clear_attributes();
 	delete attr;
 
-	cout << "\n\tForeground Colors\n" << endl;
+	cm->set_bg_color(BGREEN_BG);
+	cm->set_fg_color(BBLACK_FG);
+	cm->set_attribute(BOLD);
+
+	cout << "\n\t\t" << cm->format("Foreground Colors") << "\n" << endl;
+
+	cm->clear_attributes();
+	cm->set_bg_color(DEFAULT_BACKGROUND);
 
 	cm->set_fg_color(DEFAULT_FOREGROUND);
 	cout << "Default:\t\t\t" << cm->format("DEFAULT TEXT") << endl;
@@ -110,9 +125,15 @@ int main(int argc, char** argv){
 	cm->set_fg_color(BWHITE_FG);
 	cout << "Bright White:\t\t\t" << cm->format("BRIGHT WHITE TEXT") << endl;
 
+	cm->set_bg_color(BGREEN_BG);
+	cm->set_fg_color(BBLACK_FG);
+	cm->set_attribute(BOLD);
 
-	cout << "\n\tBackground Colors\n" << endl;
-	cm->set_fg_color(DEFAULT_FOREGROUND);
+	cout << "\n\t\t" << cm->format("Background Colors") << "\n" << endl;
+
+	cm->clear_attributes();
+
+	cm->set_fg_color(BWHITE_FG);
 	cm->set_bg_color(DEFAULT_BACKGROUND);
 	cout << "Default:\t\t\t" << cm->format("DEFAULT BACKGROUND") << endl;
 
@@ -137,15 +158,18 @@ int main(int argc, char** argv){
 	cm->set_bg_color(CYAN_BG);
 	cout << "Cyan:\t\t\t\t" << cm->format("CYAN BACKGROUND") << endl;
 
+	cm->set_fg_color(BBLACK_FG);
 	cm->set_bg_color(WHITE_BG);
 	cout << "White:\t\t\t\t" << cm->format("WHITE BACKGROUND") << endl;
 
+	cm->set_fg_color(BWHITE_FG);
 	cm->set_bg_color(BBLACK_BG);
 	cout << "Bright Black:\t\t\t" << cm->format("BRIGHT BLACK BACKGROUND") << endl;
 
 	cm->set_bg_color(BRED_BG);
 	cout << "Bright Red:\t\t\t" << cm->format("BRIGHT RED BACKGROUND") << endl;
 
+	cm->set_fg_color(BBLACK_FG);
 	cm->set_bg_color(BGREEN_BG);
 	cout << "Bright Green:\t\t\t" << cm->format("BRIGHT GREEN BACKGROUND") << endl;
 
@@ -165,8 +189,10 @@ int main(int argc, char** argv){
 	cout << "Bright White:\t\t\t" << cm->format("BRIGHT WHITE BACKGROUND") << endl;
 
 
-
-	cout << "\n-------------------------\n" << endl;
+	cm->set_bg_color(BBLACK_BG);
+	cm->set_fg_color(BBLACK_FG);
+	cm->set_attribute(BOLD);
+	cout << "\n" << cm->format("--------------------------------------------------------------") << "\n" << endl;
 	cout << "Done." << endl;
 
 	return EXIT_SUCCESS;

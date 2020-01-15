@@ -48,7 +48,7 @@ namespace COLOR_HANDLER {
 	}
 
 	int color_manager::set_bg_color(int color){
-		if((color >= MIN_BG && color <= MAX_BG) || (color >= MIN_BBG && color <= MAX_BBG)){
+		if((color >= MIN_BG && color <= MAX_BG) || (color >= MIN_BBG && color <= MAX_BBG) || color == DEFAULT_BACKGROUND){
 			this->bg_color = color;
 			this->rgb_set = false;
 
@@ -85,7 +85,7 @@ namespace COLOR_HANDLER {
 	}
 
 	int color_manager::set_fg_color(int color){
-		if((color >= MIN_FG && color <= MAX_FG) || (color >= MIN_BFG && color <= MAX_BFG)){
+		if((color >= MIN_FG && color <= MAX_FG) || (color >= MIN_BFG && color <= MAX_BFG) || color == DEFAULT_FOREGROUND){
 			this->fg_color = color;
 			this->rgb_set = false;
 
